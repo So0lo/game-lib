@@ -1,0 +1,27 @@
+.headerUl {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000;
+    min-height: 40px;
+}
+
+.headerLogo {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: Brush Script MT, Helvetica, sans-serif;
+    color: rgb(216, 216, 101);
+}
+
+.headerUser {
+    background-color: #fff;
+    width: 30px;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all .1s linear;
+}
+
+.headerUser:hover {
+    background-color: rgb(180, 180, 180);
+}
