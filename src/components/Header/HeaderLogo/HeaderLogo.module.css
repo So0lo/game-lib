@@ -11,17 +11,16 @@
     font-size: 30px;
     text-transform: uppercase;
     font-family: Brush Script MT, Helvetica, sans-serif;
-    color: rgb(216, 216, 101);
+    color: rgb(255, 255, 53);
 }
 
 .headerUser {
-    background-color: #fff;
     width: 30px;
     border-radius: 10%;
     cursor: pointer;
-    transition: all .1s linear;
+    transition: all .2s linear;
 }
 
 .headerUser:hover {
-    background-color: rgb(180, 180, 180);
+    background-color: rgb(252, 255, 66);
 }
