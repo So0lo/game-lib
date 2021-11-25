@@ -9,7 +9,8 @@ export const HeaderLogo = () => {
     const [reg, setReg] = useState(false);
     
     const createUserName = (name) => {
-        setUserName(name);
+        setUserName('User: '+ name);
+        changeReg();
     }
  
     const changeReg = () => {
@@ -18,11 +19,11 @@ export const HeaderLogo = () => {
 
     return (
         <>
-            {reg && <CreateUser userName={userName} createUserName={createUserName} changeReg={changeReg}/>}
+            {reg && <CreateUser createUserName={createUserName} changeReg={changeReg}/>}
             <nav>
                 <ul className={cls.headerUl}>
                     <li className={cls.headerLogo}>Game-lib</li>
-                    <li>{userName}</li>
+                    <li className={cls.userName}>{userName}</li>
                     <li><img src={user} alt="user" className={cls.headerUser} onClick={changeReg}></img></li>
                 </ul>
             </nav>

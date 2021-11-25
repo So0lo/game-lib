@@ -14,6 +14,12 @@
     color: rgb(255, 255, 53);
 }
 
+.userName {
+    color: rgb(255, 255, 249);
+    font-size: 24px;
+    width: 200px;
+}
+
 .headerUser {
     width: 30px;
     border-radius: 10%;
