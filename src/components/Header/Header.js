@@ -1,4 +1,5 @@
 import React from "react";
+import { HeaderContent } from "./HeaderContent/HeaderContent";
 import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
 
 export const Header = () => {
@@ -6,6 +7,7 @@ export const Header = () => {
         <>
             <header>
                 <HeaderLogo/>
+                <HeaderContent/>
             </header>
         </>
     )

@@ -17,7 +17,10 @@ export const CreateUser = ({createUserName, changeReg}) => {
                     value={inputName} 
                     onChange={({target: {value}}) => setInputName(value)}
                 />
-                <button className={cls.modalButton} onClick={() => createUserName(inputName)}>Выбрать</button>
+                <button 
+                    className={cls.modalButton} 
+                    onClick={() => {createUserName(inputName); changeReg()}}
+                >Выбрать</button>
             </div>
         </>
     )
