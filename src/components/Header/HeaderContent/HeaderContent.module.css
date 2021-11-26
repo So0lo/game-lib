@@ -1,0 +1,10 @@
+.contentCard {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 400px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+    background-color: rgb(102, 101, 101);
+}
