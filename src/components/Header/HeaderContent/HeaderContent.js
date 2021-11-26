@@ -7,7 +7,7 @@ export const HeaderContent = () => {
     const [gotData, setGotData] = useState([]);
 
     useEffect(() => {
-        setInterval(() => 
+         
         fetch(`https://jsonplaceholder.typicode.com/photos`)
         .then((res) => {
             if (res.status >= 400 && res.status < 600) {
@@ -16,25 +16,30 @@ export const HeaderContent = () => {
             return res.json();
         })
         .then((res) => {
+            let mas = [];
+            for (let i=0; i < 5; i++) {
+                mas.push(res[Math.round(Math.random() * res.length)]);
+            }
+            setGotData(mas);
             getFiveThings(res);
         })
-        .catch((mes) => console.log(mes)), 10000);
+        .catch((mes) => console.log(mes));
     }, []);
 
     const getFiveThings = (res) => {
-        const mas = [];
+        setInterval(() => {
+        let mas = [];
         for (let i=0; i < 5; i++) {
             mas.push(res[Math.round(Math.random() * res.length)]);
         }
-        setGotData(mas);
-    }
-
-    console.log(gotData);
+        setGotData(mas);}, 15000);
+    };
 
     return (
         <>
             <div className={cls.contentCard}>
-                {gotData.map((card) => <HeaderContentCard
+                {gotData.map((card) => 
+                <HeaderContentCard
                     headerContentCardData={card}
                     key={card.id}
                 />)}

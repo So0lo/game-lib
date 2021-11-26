@@ -10,6 +10,7 @@
     border-radius: 5px;
     padding: 10px;
     border: 2px solid rgb(56, 233, 56);
+    z-index: 100;
 }
 
 .modalSpan {
