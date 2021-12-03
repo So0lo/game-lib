@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
 import cls from "./HeaderContent.module.css";
 
 export const HeaderContent = () => {
 
     const [gotData, setGotData] = useState([]);
+    const [offset, setOffset] = useState(0);
 
     useEffect(() => {
-         
         fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53`)
         .then((res) => {
             if (res.status >= 400 && res.status < 600) {
@@ -16,10 +17,10 @@ export const HeaderContent = () => {
             return res.json();
         })
         .then((res) => {
-            console.log(res.results[1]);
+            // console.log(res.results);
             let mas = [];
             for (let i=0; i < 5; i++) {
-                mas.push(res.results[Math.round(Math.random() * res.results.length)]);
+                mas.push(res.results[Math.round(Math.random() * (res.results.length-1))]);
             }
             setGotData(mas);
             // getFiveThings(res.results);
@@ -27,25 +28,40 @@ export const HeaderContent = () => {
         .catch((mes) => console.log(mes));
     }, []);
 
-    // const getFiveThings = (res) => {
-    //     setInterval(() => {
-    //     let mas = [];
-    //     for (let i=0; i < 5; i++) {
-    //         mas.push(res[Math.round(Math.random() * res.length)]);
-    //     }
-    //     setGotData(mas);}, 5000);
-    // };
+    const handleLeftArrow = () => {
+        setOffset((currentSet) => {
+            const newOffset = currentSet + 100;
+            return Math.min(newOffset, 0);
+        })
+    }
 
-    console.log(gotData);
+    const handleRightArrow = () => {
+        setOffset((currentSet) => {
+            const newOffset = currentSet - 100;
+            return Math.max(newOffset, -(100 * 4));
+        })
+    }
+
+    // console.log(gotData);
 
     return (
         <>
-            <div className={cls.contentCard}>
-                {gotData.map((card) => 
-                <HeaderContentCard
-                    headerContentCardData={card}
-                    key={card.id}
-                />)}
+            <div className={cls.container}>
+                <FaChevronLeft className={cls.arrow} onClick={handleLeftArrow}/>
+                <div className={cls.window}>
+                    <div className={cls.contentCard}
+                        style={{
+                            transform: `translateX(${offset}%)`,
+                        }}
+                    >
+                        {gotData.map((card) => 
+                        <HeaderContentCard
+                            headerContentCardData={card}
+                            key={card.id}
+                        />)}
+                    </div>
+                </div>
+                <FaChevronRight className={cls.arrow} onClick={handleRightArrow}/>
             </div>
         </>
     )
