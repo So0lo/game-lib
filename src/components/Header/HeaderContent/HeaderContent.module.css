@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gray;
 }
 
 .window {
@@ -11,6 +10,7 @@
     width: 70%;
     overflow: hidden;
     border-radius: 15px;
+    position: relative;
 }
 
 .contentCard {
@@ -25,9 +25,10 @@
     border-radius: 20%;
     margin: 10px;
     transition: all .2s linear;
+    color: #fff;
 }
 
 .arrow:hover {
-    background-color: black;
-    color: white;
+    background-color: #fff;
+    color: #000;
 }

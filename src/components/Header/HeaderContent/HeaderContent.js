@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
+import headerBgr from '../../../img/headerBgr.jpg';
 import cls from "./HeaderContent.module.css";
 
 export const HeaderContent = () => {
@@ -42,11 +43,15 @@ export const HeaderContent = () => {
         })
     }
 
-    // console.log(gotData);
+    console.log(gotData);
 
     return (
         <>
-            <div className={cls.container}>
+            <div className={cls.container}
+                style={{
+                    background: `url(${headerBgr})`
+                }}
+            >
                 <FaChevronLeft className={cls.arrow} onClick={handleLeftArrow}/>
                 <div className={cls.window}>
                     <div className={cls.contentCard}

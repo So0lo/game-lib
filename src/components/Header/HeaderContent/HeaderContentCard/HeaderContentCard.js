@@ -6,10 +6,18 @@ export const HeaderContentCard = ({headerContentCardData: {background_image, gen
         <>
             <div className={cls.card}
                 style={{
-                    background:`top / cover no-repeat url(${background_image})`
+                    background:`url(${background_image}) top / cover no-repeat`
                 }}
             >
-                <h2 className={cls.hCard}>{name}</h2>
+                <h2 className={cls.titleCard}>{name}</h2>
+                <span className={cls.genresCard}>{genres.map((genre) => genre.name).join(', ')}</span>
+                <div className={cls.metacriticCardWrapper}
+                    style={{
+                        backgroundColor: metacritic < 50 ? 'rgb(255, 7, 7)' : metacritic < 80 ? 'rgb(252, 171, 22)' : 'rgb(0, 187, 0)'
+                    }}
+                >
+                    <span className={cls.metacriticCard}>{metacritic}</span>
+                </div>
             </div>
         </>
     )
