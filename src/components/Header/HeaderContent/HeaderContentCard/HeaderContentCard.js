@@ -1,9 +1,8 @@
 import React from "react";
 import cls from "./HeaderContentCard.module.css";
 
-export const HeaderContentCard = ({headerContentCardData: {background_image, genres, metacritic, name, }}) => {
+export const HeaderContentCard = ({headerContentCardData: {background_image, genres, metacritic, name}}) => {
     return (
-        <>
             <div className={cls.card}
                 style={{
                     background:`url(${background_image}) top / cover no-repeat`
@@ -19,6 +18,5 @@ export const HeaderContentCard = ({headerContentCardData: {background_image, gen
                     <span className={cls.metacriticCard}>{metacritic}</span>
                 </div>
             </div>
-        </>
     )
 }

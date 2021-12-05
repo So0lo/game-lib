@@ -16,7 +16,7 @@
 .contentCard {
     height: 100%;
     display: flex;
-    transition: transform .5s linear;
+    transition: transform .4s ease-in-out;
 }
 
 .arrow {

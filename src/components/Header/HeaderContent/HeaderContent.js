@@ -3,6 +3,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
 import headerBgr from '../../../img/headerBgr.jpg';
 import cls from "./HeaderContent.module.css";
+import loader from "../../../img/gif/loader.gif";
 
 export const HeaderContent = () => {
 
@@ -18,13 +19,11 @@ export const HeaderContent = () => {
             return res.json();
         })
         .then((res) => {
-            // console.log(res.results);
             let mas = [];
             for (let i=0; i < 5; i++) {
                 mas.push(res.results[Math.round(Math.random() * (res.results.length-1))]);
             }
             setGotData(mas);
-            // getFiveThings(res.results);
         })
         .catch((mes) => console.log(mes));
     }, []);
@@ -47,26 +46,30 @@ export const HeaderContent = () => {
 
     return (
         <>
-            <div className={cls.container}
-                style={{
-                    background: `url(${headerBgr})`
-                }}
-            >
-                <FaChevronLeft className={cls.arrow} onClick={handleLeftArrow}/>
-                <div className={cls.window}>
-                    <div className={cls.contentCard}
-                        style={{
-                            transform: `translateX(${offset}%)`,
-                        }}
-                    >
-                        {gotData.map((card) => 
-                        <HeaderContentCard
-                            headerContentCardData={card}
-                            key={card.id}
-                        />)}
-                    </div>
-                </div>
-                <FaChevronRight className={cls.arrow} onClick={handleRightArrow}/>
+                <div className={cls.container}
+                    style={{
+                        background: `url(${headerBgr})`
+                    }}
+                >
+                    {gotData.length ? 
+                        <>
+                            <FaChevronLeft className={cls.arrow} onClick={handleLeftArrow}/>
+                            <div className={cls.window}>
+                                <div className={cls.contentCard}
+                                    style={{
+                                        transform: `translateX(${offset}%)`,
+                                    }}
+                                >
+                                    {gotData.map((card) => 
+                                    <HeaderContentCard
+                                        headerContentCardData={card}
+                                        key={card.id}
+                                        gotData={gotData}
+                                    />)}
+                                </div>
+                            </div>
+                            <FaChevronRight className={cls.arrow} onClick={handleRightArrow}/>
+                        </> : <img src={loader} alt="loader"/>}
             </div>
         </>
     )
