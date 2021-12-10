@@ -19,7 +19,8 @@ export const HeaderContent = () => {
             return res.json();
         })
         .then((res) => {
-            let mas = [];
+            console.log(res);
+            const mas = [];
             for (let i=0; i < 5; i++) {
                 mas.push(res.results[Math.round(Math.random() * (res.results.length-1))]);
             }
