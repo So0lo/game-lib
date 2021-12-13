@@ -4,10 +4,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(49, 49, 49);
     margin: 10px 0;
     border-radius: 10px;
-    padding-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border .2s linear;
+}
+
+.card:hover .additionalInfoCard {
+    margin: 3px 0 0;
+    height: auto;
+}
+
+.card:hover {
+    border: 1px solid yellow;
 }
 
 .imgWrapper {
@@ -15,7 +26,6 @@
     height: 100%;
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
     border-radius: 10px;
     background-color: rgb(49, 49, 49);
 }
@@ -27,10 +37,67 @@
     height: 100%;
 }
 
+.aboutCard {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 10px 10px 5px;
+}
+
 .titleCard {
-    font-size: 30px;
-    padding: 0 20px 20px;
-    height: 50px;
-    margin-bottom: 10px;
+    font-size: 35px;
+    text-align: center;
     color: #fff;
+    margin-bottom: 5px;
+}
+
+.infoCard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.metacriticCard {
+    display: block;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.addedCard {
+    display: block;
+    color: #fff;
+    font-size: 17px;
+    border: 1px solid rgb(49, 49, 49);
+    padding: 3px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.additionalInfoCard {
+    transition: all .2s ease-in-out;
+    margin-top: 0;
+    margin-bottom: -107px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 107px;
+}
+
+.additionalInfoCard h4 {
+    color: rgb(150, 150, 150);
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.additionalInfoCard span {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    border-bottom: 1px solid rgb(255, 255, 0);
 }
