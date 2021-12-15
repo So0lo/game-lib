@@ -1,5 +1,6 @@
 .mainNav {
-    width: 20%;
-    background-color: rgb(53, 53, 53);
+    width: 15%;
+    background-color: #000;
     height: 1000px;
+    border-right: 2px solid #fff;
 }

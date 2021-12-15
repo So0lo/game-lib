@@ -1,9 +1,10 @@
 .MainContent {
-    width: 80%;
+    width: 85%;
     background-color: #000;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    border-left: 2px solid #fff;
 }
 
 .loader {

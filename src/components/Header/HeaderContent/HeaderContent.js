@@ -19,10 +19,14 @@ export const HeaderContent = () => {
             return res.json();
         })
         .then((res) => {
-            console.log(res);
             const mas = [];
             for (let i=0; i < 5; i++) {
-                mas.push(res.results[Math.round(Math.random() * (res.results.length-1))]);
+                let elem = res.results[Math.round(Math.random() * (res.results.length-1))];
+                if (mas.includes(elem)) {
+                    i--;
+                } else {
+                    mas.push(elem);
+                }
             }
             setGotData(mas);
         })
@@ -42,8 +46,6 @@ export const HeaderContent = () => {
             return Math.max(newOffset, -(100 * 4));
         })
     }
-
-    console.log(gotData);
 
     return (
         <>

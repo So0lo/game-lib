@@ -1,0 +1,23 @@
+.footerContainer {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    border-top: 2px solid rgb(255, 255, 53);
+}
+
+.footerTitle {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: Brush Script MT, Helvetica, sans-serif;
+    color: rgb(255, 255, 53);
+}
+
+.footerText {
+    color: #fff;
+    font-weight: 900;
+    margin-left: 20px;
+    letter-spacing: 1px;
+}

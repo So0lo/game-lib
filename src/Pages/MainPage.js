@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { myContext } from "../hooks/UseContext";
 import { Header } from "../components/Header/Header";
 import { Main } from "../components/Main/Main";
+import { Footer } from "../components/Footer/Footer";
 
 export const MainPage = () => {
     const [userName, setUserName] = useState('');
@@ -17,8 +18,9 @@ export const MainPage = () => {
                 userName
             }}>
                 <Header/>
+                <Main/>
             </myContext.Provider>
-            <Main/>
+            <Footer/>
         </>
     )
 };
