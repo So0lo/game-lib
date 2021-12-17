@@ -48,7 +48,7 @@ export const Main = () => {
         return function () {
             document.removeEventListener('scroll', scrollHandler);
         }
-    }, []);
+    }, [fetching]);
 
     const scrollHandler = ({target}) => {
         if (target.documentElement.scrollHeight - (target.documentElement.scrollTop + window.innerHeight) < 150 && chekPage) {

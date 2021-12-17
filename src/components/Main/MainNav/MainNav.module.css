@@ -1,12 +1,52 @@
 .mainNav {
     width: 15%;
     background-color: #000;
-    
-    border-right: 2px solid #fff;
 }
 
-.que {
-    width: 20px;
-    height: 20px;
-    background-color: red;
+.searchBar {
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 5px 15px 0 5px;
+}
+
+.searchBarInput {
+    width: 100%;
+    height: 38px;
+    /* border: 2px solid rgb(0, 255, 0); */
+    border: 2px solid rgb(0, 238, 255);
+    background-color: rgb(43, 43, 43);
+    color: #fff;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 1px;
+    transition: all .1s linear;
+    letter-spacing: 1px;
+}
+
+.searchBarInput::placeholder {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.searchBarInput:focus {
+    border: 2px solid #fff;
+}
+
+.searchWrapper {
+    position: absolute;
+    top: 7px;
+    right: 17px;
+    height: 34px;
+    background-color: rgb(196, 196, 0);
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.searchWrapper:hover {
+    background-color: rgb(255, 255, 59);
+}
+
+.search {
+    height: 100%;
 }

@@ -11,7 +11,7 @@ export const MainContent = ({gotData, isLoading}) => {
                         key={card.id}
                     />) : <img src={loader} alt="loader" className={cls.loader}/>
                 }
-                { !isLoading && gotData.length === 0 ? <div style={{color:"white"}}>Не найдено</div> : true }
+                { !isLoading && gotData.length === 0 ? <div className={cls.notFoundText}>Not Found</div> : true }
             </div>
         </>
     )
