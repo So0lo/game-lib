@@ -1,6 +1,7 @@
 import cls from "./MainContentCard.module.css";
+import {memo} from 'react';
 
-export const MainContentCard = ({mainContentCardData: {background_image, genres, metacritic, name, added, released}}) => {
+export const MainContentCard = memo(({mainContentCardData: {background_image, genres, metacritic, name, added, released}}) => {
     return (
         <div className={cls.card}>
             <div className={cls.imgWrapper}>
@@ -26,4 +27,4 @@ export const MainContentCard = ({mainContentCardData: {background_image, genres,
             </div>
         </div>
     )
-}
+});

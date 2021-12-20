@@ -30,6 +30,10 @@ export const MainNav = ({changeSearchText}) => {
     const changeHadler = ({target: {value}}) => {
         setInputText(() => value);
     }
+
+    const setGenresFilter = (name) => {
+        console.log(name);
+    }
     
     return (
         <>
@@ -47,12 +51,12 @@ export const MainNav = ({changeSearchText}) => {
                <div className={cls.filterBar}>
                    <h3 className={cls.textFilter}>Filter:</h3>
                    <p className={cls.typeFilter}>Genres</p>
-                   {!isLoading ? genres.map((genre) => <> 
-                        <label>
+                   {!isLoading ? genres.map((genre) =>
+                        <label key={genre.id}>
                             <input type="checkbox" className={cls.inputCheckbox}/>
-                            <div className={cls.genre}>{genre.name}</div>
+                            <div className={cls.genre} onClick={() => setGenresFilter(genre.name)}>{genre.name}</div>
                         </label>
-                   </>) : <img src={loader} alt="loader"/> }
+                   ) : <img src={loader} alt="loader"/> }
                </div>
            </div>
         </>
