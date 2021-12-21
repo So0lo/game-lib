@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Genres } from "./FilterTypes/Genres";
 import cls from "./MainNav.module.css";
 import search from "../../../img/search.png"
 import loader from "../../../img/gif/loader.gif"
 
-export const MainNav = ({changeSearchText}) => {
+export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter}) => {
     const [genres, setGenres] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [inputText, setInputText] = useState('');
@@ -30,13 +31,7 @@ export const MainNav = ({changeSearchText}) => {
     const changeHadler = ({target: {value}}) => {
         setInputText(() => value);
     }
-
-    const setGenresFilter = (name) => {
-        console.log(name);
-    }
-    
     return (
-        <>
            <div className={cls.mainNav}>
                <div className={cls.searchBar}>
                     <input
@@ -51,14 +46,9 @@ export const MainNav = ({changeSearchText}) => {
                <div className={cls.filterBar}>
                    <h3 className={cls.textFilter}>Filter:</h3>
                    <p className={cls.typeFilter}>Genres</p>
-                   {!isLoading ? genres.map((genre) =>
-                        <label key={genre.id}>
-                            <input type="checkbox" className={cls.inputCheckbox}/>
-                            <div className={cls.genre} onClick={() => setGenresFilter(genre.name)}>{genre.name}</div>
-                        </label>
+                   {!isLoading ? genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>
                    ) : <img src={loader} alt="loader"/> }
                </div>
            </div>
-        </>
     )
 };

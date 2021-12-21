@@ -68,34 +68,3 @@
     border-bottom: 1px solid gray;
     letter-spacing: 1px;
 }
-
-label {
-    display: flex;
-    flex-direction: column;
-}
-
-.genre {
-    text-align: right;
-    color: #fff;
-    align-self: flex-end;
-    font-size: 25px;
-    margin: 0 10px 8px 0;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-    transition: all .1s linear;
-}
-
-.genre:hover {
-    color: rgb(155, 155, 155);
-    border-bottom: 1px solid #fff;
-}
-
-.inputCheckbox {
-    display: none;
-}
-
-.inputCheckbox:checked + div {
-    color: rgb(155, 155, 155);
-    border-bottom: 1px solid #fff;
-}
