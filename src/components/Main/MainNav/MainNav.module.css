@@ -68,3 +68,7 @@
     border-bottom: 1px solid gray;
     letter-spacing: 1px;
 }
+
+.typeFilterItems {
+    margin-bottom: 20px;
+}

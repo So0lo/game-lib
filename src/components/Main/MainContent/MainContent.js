@@ -3,7 +3,7 @@ import { MainContentCard } from "./MainContentCard/MainContentCard";
 import loader from "../../../img/gif/loader.gif";
 import { useState, useEffect } from "react";
 
-export const MainContent = ({searchText, genresFilter}) => {
+export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilter}) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -13,7 +13,7 @@ export const MainContent = ({searchText, genresFilter}) => {
     useEffect(() => {
         if (fetching) {
             setIsLoading(true);
-            fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=40&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}`)
+            fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=40&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}${tagsFilter ? `&tags=${tagsFilter}` : ''}${platformsFilter ? `&parent_platforms=${platformsFilter}` : ''}`)
             .then((res) => {
                 if (res.status >= 400 && res.status < 600) {
                     throw new Error('failed fething data');
@@ -21,7 +21,6 @@ export const MainContent = ({searchText, genresFilter}) => {
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
                 setData([...data, ...res.results]);
                 setCurrentPage(prevState => prevState + 1);
                 if (!res.next) {
@@ -48,7 +47,7 @@ export const MainContent = ({searchText, genresFilter}) => {
         setCurrentPage(1);
         setChekPage(true);
         setFetching(true);
-    }, [genresFilter]);
+    }, [genresFilter, tagsFilter, platformsFilter]);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);

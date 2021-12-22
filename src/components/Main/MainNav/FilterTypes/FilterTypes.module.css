@@ -1,9 +1,9 @@
-.genreWrapper {
+.filterBarWrapper {
     display: flex;
     flex-direction: column;
 }
 
-.genre {
+.filterBarItem {
     text-align: right;
     color: #fff;
     align-self: flex-end;
@@ -15,12 +15,12 @@
     transition: all .1s linear;
 }
 
-.genre:hover {
+.filterBarItem:hover {
     color: rgb(155, 155, 155);
     border-bottom: 1px solid #fff;
 }
 
-.selectedGenre {
+.selectedFilterBarItem {
     text-align: right;
     color: rgb(155, 155, 155);
     align-self: flex-end;
