@@ -33,20 +33,6 @@ export const HeaderContent = () => {
         .catch((mes) => console.log(mes));
     }, []);
 
-    // useEffect(() => {
-    //     fetch(`https://api.rawg.io/api/genres?key=fc5d17fd5f594b359a91a8ec9bcd0d53&`)
-    //     .then((res) => {
-    //         if (res.status >= 400 && res.status < 600) {
-    //             throw new Error('failed fething data');
-    //         }
-    //         return res.json();
-    //     })
-    //     .then((res) => {
-    //         console.log(res);
-    //     })
-    //     .catch((mes) => console.log(mes));
-    // }, []);
-
     const handleLeftArrow = () => {
         setOffset((currentSet) => {
             const newOffset = currentSet + 100;
@@ -65,7 +51,7 @@ export const HeaderContent = () => {
         <>
                 <div className={cls.container}
                     style={{
-                        background: `url(${headerBgr})`
+                        background: `#000 url(${headerBgr})`
                     }}
                 >
                     {gotData.length ? 

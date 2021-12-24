@@ -3,10 +3,14 @@ import {memo} from 'react';
 
 export const MainContentCard = memo(({mainContentCardData: {background_image, genres, metacritic, name, added, released}}) => {
     return (
-        <div className={cls.card}>
-            <div className={cls.imgWrapper}>
+        <div className={cls.card}
+            style={{
+                background: `gray url(${background_image}) no-repeat center / auto 100%`
+            }}
+        >
+            {/* <div className={cls.imgWrapper}>
                 <img src={background_image} alt="imgCard" className={cls.imgCard}/>
-            </div>
+            </div> */}
             <div className={cls.aboutCard}>
                 <h3 className={cls.titleCard}>{name}</h3>
                 <div className={cls.infoCard}>

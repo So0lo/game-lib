@@ -74,31 +74,16 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
                <div>
                    <h3 className={cls.textFilter}>Filter:</h3>
                    <div className={cls.typeFilterBlock}>
-                        <label>
-                            <p className={cls.typeFilter}>Genres</p>
-                            <input type="checkbox" className={cls.inputFilterBar}/>
-                            <div className={cls.typeFilterItem}>
-                                {genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>)}
-                            </div>
-                        </label>
+                        <p className={cls.typeFilter}>Genres</p>
+                        {genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>)}
                    </div>
                    <div className={cls.typeFilterBlock}>
-                        <label>
-                            <p className={cls.typeFilter}>Tags</p>
-                            <input type="checkbox" className={cls.inputFilterBar}/>
-                            <div className={cls.typeFilterItem}>
-                                {tags.map((tag) => <Tags tag={tag} key={tag.id} changeTagsFilter={changeTagsFilter} tagsFilter={tagsFilter}/>)}
-                            </div>
-                        </label>
+                        <p className={cls.typeFilter}>Tags</p>
+                        {tags.map((tag) => <Tags tag={tag} key={tag.id} changeTagsFilter={changeTagsFilter} tagsFilter={tagsFilter}/>)}
                    </div>
                    <div className={cls.typeFilterBlock}>
-                        <label>
-                            <p className={cls.typeFilter}>Platforms</p>
-                            <input type="checkbox" className={cls.inputFilterBar}/>
-                            <div className={cls.typeFilterItem}>
-                                {platforms.map((platform) => <Platforms platform={platform} key={platform.id} changePlatformsFilter={changePlatformsFilter} platformsFilter={platformsFilter}/>)}
-                            </div>
-                        </label>
+                        <p className={cls.typeFilter}>Platforms</p>
+                        {platforms.map((platform) => <Platforms platform={platform} key={platform.id} changePlatformsFilter={changePlatformsFilter} platformsFilter={platformsFilter}/>)}
                    </div>
                </div>
                </div>
