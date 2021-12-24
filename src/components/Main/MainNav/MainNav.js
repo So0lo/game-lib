@@ -60,6 +60,7 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
 
     return (
            <div className={cls.mainNav}>
+               <div className={cls.mainNavInner}>
                <div className={cls.searchBar}>
                     <input
                         className={cls.searchBarInput}
@@ -70,20 +71,36 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
                     />
                     <div className={cls.searchWrapper} onClick={() => changeSearchText(inputText)}><img src={search} alt="search" className={cls.search}/></div>
                </div>
-               <div className={cls.filterBar}>
+               <div>
                    <h3 className={cls.textFilter}>Filter:</h3>
-                   <p className={cls.typeFilter}>Genres</p>
-                   <div className={cls.typeFilterItems}>
-                        {genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>)}
+                   <div className={cls.typeFilterBlock}>
+                        <label>
+                            <p className={cls.typeFilter}>Genres</p>
+                            <input type="checkbox" className={cls.inputFilterBar}/>
+                            <div className={cls.typeFilterItem}>
+                                {genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>)}
+                            </div>
+                        </label>
                    </div>
-                   <p className={cls.typeFilter}>Tags</p>
-                   <div className={cls.typeFilterItems}>
-                        {tags.map((tag) => <Tags tag={tag} key={tag.id} changeTagsFilter={changeTagsFilter} tagsFilter={tagsFilter}/>)}
+                   <div className={cls.typeFilterBlock}>
+                        <label>
+                            <p className={cls.typeFilter}>Tags</p>
+                            <input type="checkbox" className={cls.inputFilterBar}/>
+                            <div className={cls.typeFilterItem}>
+                                {tags.map((tag) => <Tags tag={tag} key={tag.id} changeTagsFilter={changeTagsFilter} tagsFilter={tagsFilter}/>)}
+                            </div>
+                        </label>
                    </div>
-                   <p className={cls.typeFilter}>Platforms</p>
-                   <div className={cls.typeFilterItems}>
-                        {platforms.map((platform) => <Platforms platform={platform} key={platform.id} changePlatformsFilter={changePlatformsFilter} platformsFilter={platformsFilter}/>)}
+                   <div className={cls.typeFilterBlock}>
+                        <label>
+                            <p className={cls.typeFilter}>Platforms</p>
+                            <input type="checkbox" className={cls.inputFilterBar}/>
+                            <div className={cls.typeFilterItem}>
+                                {platforms.map((platform) => <Platforms platform={platform} key={platform.id} changePlatformsFilter={changePlatformsFilter} platformsFilter={platformsFilter}/>)}
+                            </div>
+                        </label>
                    </div>
+               </div>
                </div>
            </div>
     )
