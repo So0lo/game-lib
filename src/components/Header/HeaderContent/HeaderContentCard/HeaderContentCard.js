@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import cls from "./HeaderContentCard.module.css";
 
-export const HeaderContentCard = ({headerContentCardData: {background_image, genres, metacritic, name}}) => {
+export const HeaderContentCard = ({headerContentCardData: {background_image, genres, metacritic, name, id}}) => {
     return (
-            <div className={cls.card}
+            <Link to={`/game/${id}`} className={cls.card}
                 style={{
                     background:`url(${background_image}) top / cover no-repeat`
                 }}
@@ -17,6 +18,6 @@ export const HeaderContentCard = ({headerContentCardData: {background_image, gen
                 >
                     <span className={cls.metacriticCard}>{metacritic}</span>
                 </div>
-            </div>
+            </Link>
     )
 }
