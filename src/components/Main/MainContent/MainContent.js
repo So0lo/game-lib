@@ -23,6 +23,7 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
                 return res.json();
             })
             .then((res) => {
+                console.log(res);
                 setData([...data, ...res.results]);
                 setCurrentPage(prevState => prevState + 1);
                 if (!res.next) {

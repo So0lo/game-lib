@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { CreateUser } from "../../../CreateUser/CreateUser";
-import { myContext } from "../../../hooks/UseContext";
-import user from "../../../img/user.png";
+import {CreateUser} from "../../CreateUser/CreateUser";
+import user from "../../img/user.png";
 import cls from './HeaderLogo.module.css';
+import { myContext } from "../../hooks/UseContext";
 
 export const HeaderLogo = () => {
     const [reg, setReg] = useState(false);

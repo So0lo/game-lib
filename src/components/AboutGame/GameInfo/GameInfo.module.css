@@ -1,0 +1,30 @@
+.gameInfo {
+    display: flex;
+    padding: 30px;
+}
+
+.gameImgWrapper {
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.gameImg{
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.gameNameWrapper {
+    width: 100%;
+}
+
+.gameName {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    
+}
