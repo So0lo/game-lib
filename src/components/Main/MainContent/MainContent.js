@@ -1,7 +1,7 @@
 import cls from "./MainContent.module.css";
 import { MainContentCard } from "./MainContentCard/MainContentCard";
 import loader from "../../../img/gif/loader.gif";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilter}) => {
     const [data, setData] = useState([]);
@@ -9,6 +9,8 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
     const [currentPage, setCurrentPage] = useState(1);
     const [fetching, setFetching] = useState(true);
     const [chekPage, setChekPage] = useState(true);
+    const chekRender1 = useRef(false);
+    const chekRender2 = useRef(false);
     
     useEffect(() => {
         if (fetching) {
@@ -36,17 +38,25 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
     }, [fetching]);
 
     useEffect(() => {
-        setData([]);
-        setCurrentPage(1);
-        setChekPage(true);
-        setFetching(true);
+        if (chekRender1) {
+            setData([]);
+            setCurrentPage(1);
+            setChekPage(true);
+            setFetching(true);
+        } else {
+            chekRender1.current = true;
+        }
     }, [searchText]);
 
     useEffect(() => {
-        setData([]);
-        setCurrentPage(1);
-        setChekPage(true);
-        setFetching(true);
+        if (chekRender2) {
+            setData([]);
+            setCurrentPage(1);
+            setChekPage(true);
+            setFetching(true);
+        } else {
+            chekRender2.current = true;
+        }
     }, [genresFilter, tagsFilter, platformsFilter]);
 
     useEffect(() => {
