@@ -1,6 +1,6 @@
 .gameInfo {
     display: flex;
-    padding: 30px;
+    padding: 30px 50px;
 }
 
 .gameImgWrapper {
@@ -18,13 +18,63 @@
     transform: translate(-50%);
 }
 
-.gameNameWrapper {
+.gameMainInfo {
     width: 100%;
+    padding: 0 20px 0 50px;
 }
 
 .gameName {
     font-size: 80px;
     color: #fff;
     text-align: center;
-    
+}
+
+.gameInfoItemWrapper {
+    margin: 20px 0;
+}
+
+.titleGameInfoItem {
+    color: rgb(255, 255, 53);
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.gameInfoItem {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gameMainInfoItem {
+    display: flex;
+}
+
+.gameMainInfoItem .gameInfoItemWrapper{
+    width: 50%;
+}
+
+.gameInfoItemWrapper a {
+    text-decoration: none;
+}
+
+.gameInfoItemWrapper a:hover {
+    text-decoration: underline;
+}
+
+.metacriticCardWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+.metacriticCardInner {
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.metacriticCard {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
 }

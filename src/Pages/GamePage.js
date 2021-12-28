@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GameInfo } from "../components/AboutGame/GameInfo/GameInfo";
+import loader from "../img/gif/loader.gif";
 import cls from "./GamePage.module.css";
 
 export const GamePage = () => {
@@ -27,15 +28,15 @@ export const GamePage = () => {
 
     return (
         <>
-            {!isLoading ? 
-                <div className={cls.game} style={{
-                    background: `rgb(128, 128, 128) url(${game.background_image}) center / cover no-repeat`
-                }}>
+            <div className={cls.game} style={{
+                        background: `#000 url(${game.background_image}) center / cover no-repeat`
+            }}>
+                {!isLoading ? 
                     <div className={cls.container}>
                         <GameInfo game={game}/>
-                    </div>
-                </div> : true
-            }
+                    </div> : <img src={loader} alt="loader" className={cls.loader}/>
+                }
+            </div>
         </>
     )
 };

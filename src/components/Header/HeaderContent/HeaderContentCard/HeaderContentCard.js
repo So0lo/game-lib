@@ -13,7 +13,7 @@ export const HeaderContentCard = ({headerContentCardData: {background_image, gen
                 <span className={cls.genresCard}>{genres.map((genre) => genre.name).join(', ')}</span>
                 <div className={cls.metacriticCardWrapper}
                     style={{
-                        backgroundColor: metacritic < 50 ? 'rgb(255, 7, 7)' : metacritic < 80 ? 'rgb(252, 171, 22)' : 'rgb(0, 187, 0)'
+                        backgroundColor: metacritic < 50 ? 'rgb(255, 7, 7)' : metacritic < 80 ? 'rgb(252, 171, 22)' : 'rgb(0, 150, 0)'
                     }}
                 >
                     <span className={cls.metacriticCard}>{metacritic}</span>
