@@ -1,6 +1,7 @@
 .gameInfo {
     display: flex;
-    padding: 30px 50px;
+    padding: 30px 50px 15px;
+    border-bottom: 1px solid gray;
 }
 
 .gameImgWrapper {
@@ -8,7 +9,7 @@
     height: 400px;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .gameImg{
@@ -77,4 +78,107 @@
     color: #fff;
     font-size: 25px;
     font-weight: bold;
+}
+
+.additionalInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+.additionalInfoText {
+    color: #fff;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.ratingsInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.ratingsInfoItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.ratingsInfoItem:first-child {
+    color: rgb(0, 212, 0);
+}
+
+.ratingsInfoItem:nth-child(2) {
+    color: rgb(230, 230, 0);
+}
+
+.ratingsInfoItem:nth-child(3) {
+    color: rgb(255, 165, 0);
+}
+
+.ratingsInfoItem:last-child {
+    color: rgb(238, 0, 0);
+}
+
+.ratingsInfoItemTitle {
+    text-transform: capitalize;
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.ratingsInfoItemText {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: -1px;
+}
+
+.trailers {
+    display: flex;
+    justify-content: center;
+}
+
+.window {
+    max-height: 450px;
+    width: 60%;
+    overflow: hidden;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border .2s linear;
+}
+
+.window:hover {
+    border: 1px solid rgb(255, 255, 53);
+}
+
+.contentCard {
+    height: 100%;
+    display: flex;
+    transition: transform .4s ease-in-out;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 20%;
+    margin: 10px;
+    transition: all .2s linear;
+    color: #fff;
+    align-self: center;
+}
+
+.arrow:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+video {
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
 }

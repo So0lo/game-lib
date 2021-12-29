@@ -7,11 +7,12 @@ import cls from "./GamePage.module.css";
 export const GamePage = () => {
     const {gameId} = useParams();
     const [game, setGame] = useState({});
+    const [movies, setMovies] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`https://api.rawg.io/api/games/${gameId}?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=40`)
+        fetch(`https://api.rawg.io/api/games/${gameId}?key=fc5d17fd5f594b359a91a8ec9bcd0d53`)
         .then((res) => {
             if (res.status >= 400 && res.status < 600) {
                 throw new Error('failed fething data');
@@ -26,6 +27,21 @@ export const GamePage = () => {
         .finally(() => setIsLoading(false));
     }, []);
 
+    useEffect(() => {
+        fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=fc5d17fd5f594b359a91a8ec9bcd0d53`)
+        .then((res) => {
+            if (res.status >= 400 && res.status < 600) {
+                throw new Error('failed fething data');
+            }
+            return res.json();
+        })
+        .then((res) => {
+            console.log(res.results);
+            setMovies(res.results);
+        })
+        .catch((mes) => console.log(mes))
+    }, []);
+
     return (
         <>
             <div className={cls.game} style={{
@@ -33,7 +49,7 @@ export const GamePage = () => {
             }}>
                 {!isLoading ? 
                     <div className={cls.container}>
-                        <GameInfo game={game}/>
+                        <GameInfo game={game} movies={movies}/>
                     </div> : <img src={loader} alt="loader" className={cls.loader}/>
                 }
             </div>
