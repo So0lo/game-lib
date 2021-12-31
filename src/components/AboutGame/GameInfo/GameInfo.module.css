@@ -87,6 +87,11 @@
     padding: 25px;
     border-bottom: 1px solid rgb(128, 128, 128);
 }
+
+.additionalInfo:nth-child(3) {
+    border-bottom: none;
+}
+
 .additionalInfoText {
     color: #fff;
     font-size: 35px;

@@ -13,12 +13,14 @@
     letter-spacing: 1px;
     cursor: pointer;
     border-bottom: 1px solid transparent;
+    text-transform: capitalize;
     transition: all .1s linear;
 }
 
 .filterBarItem:hover {
     color: rgb(155, 155, 155);
     border-bottom: 1px solid #fff;
+    text-transform: capitalize;
 }
 
 .selectedFilterBarItem {
@@ -31,4 +33,5 @@
     cursor: pointer;
     border-bottom: 1px solid #fff;
     transition: all .1s linear;
+    text-transform: capitalize;
 }

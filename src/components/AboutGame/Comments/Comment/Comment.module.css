@@ -1,0 +1,29 @@
+.comment {
+    display: flex;
+    padding: 20px 40px;
+}
+
+.commentImgWrapper {
+    width: 50px;
+    margin-right: 20px;
+}
+
+.commentImg {
+    width: 100%;
+}
+
+.comentTextWrapper {
+    width: 100%;
+}
+
+.commentUsername {
+    color: rgb(128, 128, 128);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.commentText {
+    color: #fff;
+    font-size: 23px;
+}
