@@ -11,3 +11,42 @@
     border-radius: 10px;
     margin: 20px 0;
 }
+
+.enterComment {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+}
+
+.enterText {
+    height: 100px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid rgb(238, 238, 0);
+    color: #fff;
+    font-size: 23px;
+    padding: 10px;
+}
+
+.enterText::placeholder {
+    color: rgb(134, 134, 134);
+}
+
+.button {
+    align-self: flex-start;
+    width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    background: #000;
+    color: rgb(238, 238, 0);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: all .2s linear;
+}
+
+.button:hover {
+    background: #fff;
+    color: #000;
+}

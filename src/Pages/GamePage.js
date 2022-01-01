@@ -58,15 +58,24 @@ export const GamePage = () => {
         .catch((mes) => console.log(mes))
     }, []);
 
+    const updateComments = (text) => {
+        const obj = {
+            id: 999,
+            name: text,
+            username: "User"
+        }
+        setReddit([obj, ...reddit]);
+    }
+
     return (
         <>
             <div className={cls.game} style={{
-                        background: `#000 url(${game.background_image}) center / cover no-repeat`
+                        background: `#000 url(${game.background_image}) center / cover no-repeat fixed`
             }}>
                 {!isLoading ? 
                     <div className={cls.container}>
                         <GameInfo game={game} movies={movies}/>
-                        <Comments reddit={reddit}/>
+                        <Comments reddit={reddit} updateComments={updateComments}/>
                     </div> : <img src={loader} alt="loader" className={cls.loader}/>
                 }
             </div>
