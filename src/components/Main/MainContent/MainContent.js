@@ -9,13 +9,14 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
     const [currentPage, setCurrentPage] = useState(1);
     const [fetching, setFetching] = useState(true);
     const [chekPage, setChekPage] = useState(true);
-    const chekRender1 = useRef(false);
-    const chekRender2 = useRef(false);
+    const chekRender = useRef(false);
     
     useEffect(() => {
         if (fetching) {
-            setIsLoading(true);
-            fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=40&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}${tagsFilter ? `&tags=${tagsFilter}` : ''}${platformsFilter ? `&parent_platforms=${platformsFilter}` : ''}`)
+            if (!data.length) {
+                setIsLoading(true);
+            }
+            fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=20&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}${tagsFilter ? `&tags=${tagsFilter}` : ''}${platformsFilter ? `&parent_platforms=${platformsFilter}` : ''}`)
             .then((res) => {
                 if (res.status >= 400 && res.status < 600) {
                     throw new Error('failed fething data');
@@ -33,32 +34,23 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
             .catch((mes) => console.log(mes))
             .finally(() => {
                 setFetching(false);
-                setIsLoading(false);
+                if (setIsLoading) {
+                    setIsLoading(false);
+                }
             });
         }
     }, [fetching]);
 
     useEffect(() => {
-        if (chekRender1) {
+        if (chekRender) {
             setData([]);
             setCurrentPage(1);
             setChekPage(true);
             setFetching(true);
         } else {
-            chekRender1.current = true;
+            chekRender.current = true;
         }
-    }, [searchText]);
-
-    useEffect(() => {
-        if (chekRender2) {
-            setData([]);
-            setCurrentPage(1);
-            setChekPage(true);
-            setFetching(true);
-        } else {
-            chekRender2.current = true;
-        }
-    }, [genresFilter, tagsFilter, platformsFilter]);
+    }, [searchText, genresFilter, tagsFilter, platformsFilter]);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);

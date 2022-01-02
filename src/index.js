@@ -16,7 +16,7 @@ ReactDOM.render(
           <Route path='game/:gameId' element={<GamePage/>}/>
         </Route>
       </Routes>
-    </Router>,
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

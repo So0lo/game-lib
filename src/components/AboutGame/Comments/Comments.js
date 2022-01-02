@@ -4,7 +4,6 @@ import cls from './Comments.module.css';
 
 export const Comments = ({reddit, updateComments}) => {
     const [inputText, setInputText] = useState('');
-
     return (
         <div className={cls.commentsWrapper}>
             <h3 className={cls.commentsTitle}>Comments</h3>
@@ -21,4 +20,4 @@ export const Comments = ({reddit, updateComments}) => {
             {Object.keys(reddit).length ? reddit.map(reddit => <Comment reddit={reddit} key={reddit.id}/>) : true}
         </div>
     )
-}
+};
