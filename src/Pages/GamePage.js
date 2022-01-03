@@ -81,11 +81,11 @@ export const GamePage = () => {
         }
     }
 
-    const updateComments = (text) => {
+    const updateComments = (id, text, username) => {
         const obj = {
-            id: 999,
+            id,
             name: text,
-            username: "User"
+            username
         }
         setReddit([obj, ...reddit]);
     }

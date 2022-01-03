@@ -4,7 +4,8 @@
 }
 
 .commentImgWrapper {
-    width: 50px;
+    max-width: 50px;
+    min-width: 50px;
     margin-right: 20px;
 }
 
@@ -12,8 +13,9 @@
     width: 100%;
 }
 
-.comentTextWrapper {
-    width: 100%;
+.commentTextWrapper {
+   width: 100%;
+   word-break: break-all;
 }
 
 .commentUsername {
@@ -26,4 +28,5 @@
 .commentText {
     color: #fff;
     font-size: 23px;
+    text-align: left;
 }
