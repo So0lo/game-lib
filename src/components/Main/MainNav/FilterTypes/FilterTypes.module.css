@@ -1,7 +1,6 @@
 .filterBarWrapper {
     display: flex;
     flex-direction: column;
-    z-index: 100;
 }
 
 .filterBarItem {
@@ -28,10 +27,20 @@
     color: rgb(155, 155, 155);
     align-self: flex-end;
     font-size: 25px;
-    margin: 0 10px 8px 0;
+    margin: 0 18px 8px 0;
     letter-spacing: 1px;
     cursor: pointer;
     border-bottom: 1px solid #fff;
     transition: all .1s linear;
     text-transform: capitalize;
+}
+
+@media screen and (max-width: 1000px) {
+    .filterBarItem {
+        margin: 10px;
+    }
+
+    .selectedFilterBarItem {
+        margin: 4px 10px 10px 10px;
+    }
 }

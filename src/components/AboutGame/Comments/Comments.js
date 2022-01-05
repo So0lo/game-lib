@@ -21,7 +21,7 @@ export const Comments = ({reddit, updateComments}) => {
                     onChange={({target: {value}}) => setInputText(value)}
                 />
             <button 
-                onClick={() => {updateComments(`${user.uid}${date}`, inputText, user.displayName); setInputText('')}} 
+                onClick={() => {updateComments(`${user.uid}${date}`, inputText, user.displayName, user.photoURL); setInputText('')}} 
                 className={cls.button}
             >
                 Submit

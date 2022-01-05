@@ -12,7 +12,7 @@
     width: 100%;
     display: flex;
     position: relative;
-    padding: 5px 15px 0 5px;
+    padding: 5px 0 0 5px;
     margin-bottom: 20px;
 }
 
@@ -41,7 +41,7 @@
 .searchWrapper {
     position: absolute;
     top: 8px;
-    right: 18px;
+    right: 3px;
     height: 32px;
     background-color: rgb(255, 255, 255);
     transition: all .2s linear;
@@ -69,6 +69,14 @@
     margin-bottom: 20px;
 }
 
+.filterTypesWrapper {
+    overflow: hidden;
+}
+
+.filterTypes {
+    transition: all .2s ease-in-out;
+}
+
 .typeFilter {
     color: #fff;
     text-align: center;
@@ -76,4 +84,52 @@
     margin-bottom: 10px;
     border-bottom: 1px solid rgb(128, 128, 128);
     letter-spacing: 1px;
+}
+
+.filterInput {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .mainNav {
+        width: auto;
+    }
+
+    .searchBar {
+        width: 300px;
+    }
+
+    .typeFilterBlock {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 0;
+        padding-bottom: 10px;
+    }
+
+    .typeFilter {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .textFilter {
+        cursor: pointer;
+        transition: all .1s linear;
+        z-index: 1;
+    }
+
+    .textFilter:hover {
+        color: #000;
+        background-color: rgb(128, 128, 128);
+    }
+
+    .filterTypes {
+        height: 540px;
+        margin-top: -540px;
+    }
+
+    .filterInput:checked + div > div {
+        height: auto;
+        margin: 0;
+    }
 }

@@ -72,18 +72,42 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
                     <div className={cls.searchWrapper} onClick={() => changeSearchText(inputText)}><img src={search} alt="search" className={cls.search}/></div>
                </div>
                <div>
-                   <h3 className={cls.textFilter}>Filter:</h3>
-                   <div className={cls.typeFilterBlock}>
-                        <p className={cls.typeFilter}>Genres</p>
-                        {genres.map((genre) => <Genres genre={genre} key={genre.id} changeGenresFilter={changeGenresFilter} genresFilter={genresFilter}/>)}
-                   </div>
-                   <div className={cls.typeFilterBlock}>
-                        <p className={cls.typeFilter}>Tags</p>
-                        {tags.map((tag) => <Tags tag={tag} key={tag.id} changeTagsFilter={changeTagsFilter} tagsFilter={tagsFilter}/>)}
-                   </div>
-                   <div className={cls.typeFilterBlock}>
-                        <p className={cls.typeFilter}>Platforms</p>
-                        {platforms.map((platform) => <Platforms platform={platform} key={platform.id} changePlatformsFilter={changePlatformsFilter} platformsFilter={platformsFilter}/>)}
+                   <label htmlFor="filterInput">
+                        <h3 className={cls.textFilter}>Filter</h3>
+                   </label>
+                   <input type="checkbox" id="filterInput" className={cls.filterInput}/>
+                   <div className={cls.filterTypesWrapper}>
+                        <div className={cls.filterTypes}>
+                                <div className={cls.typeFilterBlock}>
+                                        <p className={cls.typeFilter}>Genres</p>
+                                        {genres.map((genre) => 
+                                        <Genres 
+                                            genre={genre} 
+                                            key={genre.id} 
+                                            changeGenresFilter={changeGenresFilter} 
+                                            genresFilter={genresFilter}
+                                        />)}
+                                </div>
+                                <div className={cls.typeFilterBlock}>
+                                        <p className={cls.typeFilter}>Tags</p>
+                                        {tags.map((tag) => <Tags 
+                                            tag={tag} 
+                                            key={tag.id} 
+                                            changeTagsFilter={changeTagsFilter} 
+                                            tagsFilter={tagsFilter}
+                                        />)}
+                                </div>
+                                <div className={cls.typeFilterBlock}>
+                                        <p className={cls.typeFilter}>Platforms</p>
+                                        {platforms.map((platform) => 
+                                        <Platforms 
+                                            platform={platform} 
+                                            key={platform.id} 
+                                            changePlatformsFilter={changePlatformsFilter} 
+                                            platformsFilter={platformsFilter}
+                                        />)}
+                                </div>
+                        </div>
                    </div>
                </div>
                </div>

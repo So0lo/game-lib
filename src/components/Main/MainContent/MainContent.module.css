@@ -1,4 +1,4 @@
-.MainContent {
+.mainContent {
     width: 85%;
     background-color: #000;
     grid-template-columns: repeat(4, 23%);
@@ -30,4 +30,22 @@
     letter-spacing: 1px;
     font-weight: bold;
     position: absolute;
+}
+
+@media screen and (max-width: 1000px) {
+    .mainContent {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .mainContent {
+        grid-template-columns: repeat(2, 48%);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .mainContent {
+        grid-template-columns: 100%;
+    }
 }

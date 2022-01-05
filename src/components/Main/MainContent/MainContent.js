@@ -24,7 +24,6 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
                 setData([...data, ...res.results]);
                 setCurrentPage(prevState => prevState + 1);
                 if (!res.next) {
@@ -67,7 +66,7 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
 
     return (
         <>
-            <div className={cls.MainContent}>
+            <div className={cls.mainContent}>
                 { !isLoading ? data.map((card) => <MainContentCard
                         mainContentCardData={card}
                         key={card.id}

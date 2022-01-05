@@ -25,7 +25,6 @@ export const GamePage = () => {
             return res.json();
         })
         .then((res) => {
-            console.log(res);
             setGame(res);
         })
         .catch((mes) => console.log(mes))
@@ -56,7 +55,6 @@ export const GamePage = () => {
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
                 setReddit([...reddit, ...res.results]);
                 setCurrentPage(prevState => prevState + 1);
                 if (!res.next) {
@@ -81,11 +79,12 @@ export const GamePage = () => {
         }
     }
 
-    const updateComments = (id, text, username) => {
+    const updateComments = (id, text, username, photo) => {
         const obj = {
             id,
             name: text,
-            username
+            username,
+            photo
         }
         setReddit([obj, ...reddit]);
     }

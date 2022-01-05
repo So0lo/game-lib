@@ -31,10 +31,12 @@
 }
 
 .genresCard {
+    text-align: center;
     font-size: 30px;
     color: white;
     margin-bottom: 15px;
     z-index: 1;
+    padding: 0 5px;
 }
 
 .metacriticCardWrapper {
@@ -49,4 +51,19 @@
     color: #fff;
     font-size: 30px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 990px) {
+    .titleCard {
+        font-size: 40px;
+    }
+    
+    .metacriticCardWrapper {
+        padding: 10px;
+        bottom: 5%;
+    }
+
+    .metacriticCard {
+        font-size: 20px;
+    }
 }
