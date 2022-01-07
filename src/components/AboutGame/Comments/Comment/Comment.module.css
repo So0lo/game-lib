@@ -30,3 +30,9 @@
     font-size: 23px;
     text-align: left;
 }
+
+@media screen and (max-width: 450px) {
+    .comment {
+        padding: 10px 20px;
+    }
+}

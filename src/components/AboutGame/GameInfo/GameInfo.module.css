@@ -32,6 +32,7 @@
 
 .gameInfoItemWrapper {
     margin: 20px 0;
+    padding: 5px;
 }
 
 .titleGameInfoItem {
@@ -186,4 +187,58 @@ video {
     min-width: 100%;
     max-width: 100%;
     position: relative;
+}
+
+@media screen and (max-width: 800px) {
+    .gameInfo {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px 10px;
+    }
+
+    .gameImgWrapper {
+        margin: 0;
+    }
+
+    .gameInfoInner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gameInfoItemWrapper {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .gameMainInfo {
+        padding: 0;
+    }
+
+    .ratingsInfoItem {
+        width: 50%;
+        margin: 10px 0;
+    }
+
+    .additionalInfo {
+        padding: 15px;
+    }
+
+    .window {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .gameName {
+        font-size: 60px;
+    }
+
+    .ratingsInfoItem {
+        width: 100%;
+    }
+
+    .additionalInfo {
+        padding: 5px;
+    }
 }

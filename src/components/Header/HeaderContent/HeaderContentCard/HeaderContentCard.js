@@ -6,7 +6,7 @@ export const HeaderContentCard = ({headerContentCardData: {background_image, gen
     return (
             <Link to={`/game/${id}`} className={cls.card}
                 style={{
-                    background:`url(${background_image}) top / cover no-repeat`
+                    background:`#000 url(${background_image}) top / cover no-repeat`
                 }}
             >
                 <h2 className={cls.titleCard}>{name}</h2>

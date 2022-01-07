@@ -44,7 +44,7 @@ export const GameInfo = (
         return (
             <>
                 <div className={cls.gameInfo}>
-                    <div>
+                    <div className={cls.gameInfoInner}>
                         <div className={cls.gameImgWrapper}>
                             <img src={background_image} alt="imgGame" className={cls.gameImg}/>
                         </div>
