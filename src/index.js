@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {MainPage, GamePage} from './Pages';
+import {MainPage, GamePage, NotFoundPage} from './Pages';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {Layout} from './components/Layout';
 import {Provider} from 'react-redux';
@@ -14,6 +14,7 @@ ReactDOM.render(
         <Route path='/' element={<Layout/>}>
           <Route index element={<MainPage/>}/>
           <Route path='game/:gameId' element={<GamePage/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
         </Route>
       </Routes>
     </Router>

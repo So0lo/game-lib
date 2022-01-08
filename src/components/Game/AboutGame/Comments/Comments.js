@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Comment } from './Comment/Comment';
-import { getUser } from '../../../Redux/user/userSelectors';
+import { getUser } from '../../../../Redux/user/userSelectors';
 import cls from './Comments.module.css';
 import { useSelector } from 'react-redux';
 

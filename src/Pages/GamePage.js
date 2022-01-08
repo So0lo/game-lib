@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Comments } from "../components/AboutGame/Comments/Comments";
-import { GameInfo } from "../components/AboutGame/GameInfo/GameInfo";
+import { Game } from "../components/Game/Game";
+import { withError } from "../hoc/withError";
 import loader from "../img/gif/loader.gif";
 import cls from "./GamePage.module.css";
+
+const HandledGame = withError(Game);
 
 export const GamePage = () => {
     const {gameId} = useParams();
@@ -14,6 +16,7 @@ export const GamePage = () => {
     const [fetching, setFetching] = useState(true);
     const [chekPage, setChekPage] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         setIsLoading(true);
@@ -27,7 +30,7 @@ export const GamePage = () => {
         .then((res) => {
             setGame(res);
         })
-        .catch((mes) => console.log(mes))
+        .catch((mes) => {console.log(1); return setErrorMessage(mes)})
         .finally(() => setIsLoading(false));
     }, []);
 
@@ -42,7 +45,7 @@ export const GamePage = () => {
         .then((res) => {
             setMovies(res.results);
         })
-        .catch((mes) => console.log(mes))
+        .catch(() => false)
     }, []);
 
     useEffect(() => {
@@ -61,7 +64,7 @@ export const GamePage = () => {
                     setChekPage(false);
                 }
             })
-            .catch((mes) => console.log(mes))
+            .catch(() => false)
             .finally(() => setFetching(false));
         }
     }, [fetching]);
@@ -96,8 +99,7 @@ export const GamePage = () => {
             }}>
                 {!isLoading ? 
                     <div className={cls.container}>
-                        <GameInfo game={game} movies={movies}/>
-                        <Comments reddit={reddit} updateComments={updateComments}/>
+                        <HandledGame game={game} movies={movies} reddit={reddit} updateComments={updateComments} errorMsg={errorMessage}/>
                     </div> : <img src={loader} alt="loader" className={cls.loader}/>
                 }
             </div>

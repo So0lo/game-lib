@@ -1,5 +1,5 @@
 import { memo } from "react";
-import userPhotoDefault from "../../../../img/user.png";
+import userPhotoDefault from "../../../../../img/user.png";
 import cls from './Comment.module.css';
 
 export const Comment = memo(({reddit}) => {

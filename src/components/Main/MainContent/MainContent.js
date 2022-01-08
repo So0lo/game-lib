@@ -18,6 +18,7 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
             }
             fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=20&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}${tagsFilter ? `&tags=${tagsFilter}` : ''}${platformsFilter ? `&parent_platforms=${platformsFilter}` : ''}`)
             .then((res) => {
+                console.log(res.status);
                 if (res.status >= 400 && res.status < 600) {
                     throw new Error('failed fething data');
                 }
@@ -30,7 +31,6 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
                     setChekPage(false);
                 }
             })
-            .catch((mes) => console.log(mes))
             .finally(() => {
                 setFetching(false);
                 if (setIsLoading) {
