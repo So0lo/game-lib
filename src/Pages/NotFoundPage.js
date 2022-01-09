@@ -18,7 +18,8 @@ export const NotFoundPage = () => {
                 fontSize: '50px'
             }}>Page not found</h2>
             <Link to='/' style={{
-                fontSize: '30px'
+                fontSize: '30px',
+                color: '#fff'
             }}>Go to main page</Link>
         </div>
     )

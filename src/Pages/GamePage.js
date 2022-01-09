@@ -95,10 +95,15 @@ export const GamePage = () => {
     return (
         <>
             <div className={cls.game} style={{
-                        background: `#000 url(${game.background_image}) center / cover no-repeat fixed`
+                        background: `#000 url(${game.background_image}) center / cover no-repeat fixed`,
+                        position: `${errorMessage ? 'absolute' : 'relative'}`,
+                        top: `${errorMessage ? '0' : 'auto'}`,
+                        right: `${errorMessage ? '0' : 'auto'}`,
+                        bottom: `${errorMessage ? '0' : 'auto'}`,
+                        left: `${errorMessage ? '0' : 'auto'}`
             }}>
                 {!isLoading ? 
-                    <div className={cls.container}>
+                    <div className={cls.container} style={{zIndex: `${errorMessage ? '1001' : '100'}`}}>
                         <HandledGame game={game} movies={movies} reddit={reddit} updateComments={updateComments} errorMsg={errorMessage}/>
                     </div> : <img src={loader} alt="loader" className={cls.loader}/>
                 }
