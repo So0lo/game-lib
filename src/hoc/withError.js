@@ -27,9 +27,7 @@ const ErrorCard = ({errorMsg})=> {
 };
 
 export function withError (Wrapped) {
-    console.log(2);
     return ({errorMsg, ...props}) => {
-        console.log(3);
         return errorMsg ? <ErrorCard errorMsg={errorMsg}/>
         : <Wrapped {...props}/>
     };
