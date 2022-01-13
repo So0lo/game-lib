@@ -8,23 +8,21 @@ const initialState = {
     tagsFilter: '',
     platformsFilter: '',
     chekPage: true,
-    fetching: true,
-    isLoading: true
+    fetching: true
 };
 
 export const mainContentReducer = (state = initialState, action) => {
     switch(action.type){
         case mainContentActionTypes.SHOW_GAMES:
             return {
-                games: [...state.games, ...action.payload.data],
+                games: [...state.games, ...action.payload.games],
                 currentPage: action.payload.currentPage,
                 searchText: action.payload.searchText,
                 genresFilter: action.payload.genresFilter,
                 tagsFilter: action.payload.tagsFilter,
                 platformsFilter: action.payload.platformsFilter,
                 chekPage: action.payload.chekPage,
-                fetching: false,
-                isLoading: false
+                fetching: false
             }
         case mainContentActionTypes.CLEAR_GAMES:
             return {
@@ -32,18 +30,12 @@ export const mainContentReducer = (state = initialState, action) => {
                 games: action.payload,
                 currentPage: 1,
                 chekPage: true,
-                fetching: true,
-                isLoading: true
+                fetching: true
             }
         case mainContentActionTypes.SET_FETCHING:
             return {
                 ...state,
                 fetching: action.payload
-            }
-        case mainContentActionTypes.SET_ISLOADING:
-            return {
-                ...state,
-                isLoading: action.payload
             }
         default: 
             return state;

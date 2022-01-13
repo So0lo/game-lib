@@ -1,6 +1,6 @@
 import { mainContentActionTypes } from "./mainContentActionTypes";
 
-export const showGames = (currentPage, searchText, genresFilter, tagsFilter, platformsFilter) => {
+export const showGames = (currentPage, searchText, genresFilter, tagsFilter, platformsFilter, changeLoadingStatus) => {
     return (dispatch) => {
         fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=20&page=${currentPage}${searchText ? `&search=${searchText}` : ''}${genresFilter ? `&genres=${genresFilter}` : ''}${tagsFilter ? `&tags=${tagsFilter}` : ''}${platformsFilter ? `&parent_platforms=${platformsFilter}` : ''}`)
             .then((res) => {
@@ -13,7 +13,7 @@ export const showGames = (currentPage, searchText, genresFilter, tagsFilter, pla
                 dispatch({
                     type: mainContentActionTypes.SHOW_GAMES,
                     payload: {
-                        data: res.results,
+                        games: res.results,
                         currentPage: currentPage + 1,
                         searchText,
                         genresFilter,
@@ -22,7 +22,8 @@ export const showGames = (currentPage, searchText, genresFilter, tagsFilter, pla
                         chekPage: !res.next ? false : true
                     }
                 });
-            });
+            })
+            .finally(() => changeLoadingStatus(false));
     }
 }
 

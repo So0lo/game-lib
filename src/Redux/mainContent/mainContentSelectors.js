@@ -6,4 +6,3 @@ export const getTagsFilter = ({games}) => games.tagsFilter;
 export const getPlatformsFilter = ({games}) => games.platformsFilter;
 export const getChekPage = ({games}) => games.chekPage;
 export const getFetching = ({games}) => games.fetching;
-export const getIsLoading = ({games}) => games.isLoading;

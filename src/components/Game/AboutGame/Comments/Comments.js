@@ -4,7 +4,7 @@ import { getUser } from '../../../../Redux/user/userSelectors';
 import cls from './Comments.module.css';
 import { useSelector } from 'react-redux';
 
-export const Comments = ({reddit, updateComments}) => {
+export const Comments = ({comments, updateComments}) => {
     const [inputText, setInputText] = useState('');
     const user = useSelector(getUser);
     let date = new Date();
@@ -27,7 +27,7 @@ export const Comments = ({reddit, updateComments}) => {
                 Submit
             </button> 
             </div> : true}
-            {Object.keys(reddit).length ? reddit.map(reddit => <Comment reddit={reddit} key={reddit.id}/>) : true}
+            {comments.length ? comments.map(comment => <Comment comment={comment} key={comment.id}/>) : true}
         </div>
     )
 };

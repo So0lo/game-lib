@@ -1,71 +1,38 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Game } from "../components/Game/Game";
-import { withError } from "../hoc/withError";
+import { useDispatch, useSelector } from "react-redux";
+import { getGame, getMovies, getComments, getFetching, getChekPage, getCurrentPage } from "../Redux/gamePage/gamePageSelectors";
+import { showGame, showMovies, showComments, setComments, setFetching } from "../Redux/gamePage/gamePageActions";
 import loader from "../img/gif/loader.gif";
 import cls from "./GamePage.module.css";
-
-const HandledGame = withError(Game);
+import { clearGames } from "../Redux/mainContent/mainContentActions";
 
 export const GamePage = () => {
     const {gameId} = useParams();
-    const [game, setGame] = useState({});
-    const [movies, setMovies] = useState([]);
-    const [reddit, setReddit] = useState([]);
+    const game = useSelector(getGame);
+    const dispatch = useDispatch();
+    const movies = useSelector(getMovies);
+    const comments = useSelector(getComments);
     const [isLoading, setIsLoading] = useState(false);
-    const [fetching, setFetching] = useState(true);
-    const [chekPage, setChekPage] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [errorMessage, setErrorMessage] = useState('');
+    const fetching = useSelector(getFetching);
+    const chekPage = useSelector(getChekPage);
+    const currentPage = useSelector(getCurrentPage);
+
+    const changeLoadingStatus = (bool) => {
+        setIsLoading(bool);
+    } 
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`https://api.rawg.io/api/games/${gameId}?key=fc5d17fd5f594b359a91a8ec9bcd0d53`)
-        .then((res) => {
-            if (res.status >= 400 && res.status < 600) {
-                throw new Error('failed fething data');
-            }
-            return res.json();
-        })
-        .then((res) => {
-            setGame(res);
-        })
-        .catch((mes) => {console.log(1); return setErrorMessage(mes)})
-        .finally(() => setIsLoading(false));
-    }, []);
-
-    useEffect(() => {
-        fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=fc5d17fd5f594b359a91a8ec9bcd0d53`)
-        .then((res) => {
-            if (res.status >= 400 && res.status < 600) {
-                throw new Error('failed fething data');
-            }
-            return res.json();
-        })
-        .then((res) => {
-            setMovies(res.results);
-        })
-        .catch(() => false)
+        dispatch(showGame(gameId, changeLoadingStatus));
+        dispatch(showMovies(gameId));
+        dispatch(clearGames());
     }, []);
 
     useEffect(() => {
         if(fetching) {
-            fetch(`https://api.rawg.io/api/games/${gameId}/reddit?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page=${currentPage}`)
-            .then((res) => {
-                if (res.status >= 400 && res.status < 600) {
-                    throw new Error('failed fething data');
-                }
-                return res.json();
-            })
-            .then((res) => {
-                setReddit([...reddit, ...res.results]);
-                setCurrentPage(prevState => prevState + 1);
-                if (!res.next) {
-                    setChekPage(false);
-                }
-            })
-            .catch(() => false)
-            .finally(() => setFetching(false));
+            dispatch(showComments(gameId, currentPage));
         }
     }, [fetching]);
 
@@ -78,7 +45,7 @@ export const GamePage = () => {
 
     const scrollHandler = ({target}) => {
         if (target.documentElement.scrollHeight - (target.documentElement.scrollTop + window.innerHeight) < 100 && chekPage) {
-            setFetching(true);
+            dispatch(setFetching(true));
         }
     }
 
@@ -89,22 +56,17 @@ export const GamePage = () => {
             username,
             photo
         }
-        setReddit([obj, ...reddit]);
+        dispatch(setComments(obj));
     }
 
     return (
         <>
             <div className={cls.game} style={{
-                        background: `#000 url(${game.background_image}) center / cover no-repeat fixed`,
-                        position: `${errorMessage ? 'absolute' : 'relative'}`,
-                        top: `${errorMessage ? '0' : 'auto'}`,
-                        right: `${errorMessage ? '0' : 'auto'}`,
-                        bottom: `${errorMessage ? '0' : 'auto'}`,
-                        left: `${errorMessage ? '0' : 'auto'}`
+                    background: `#000 url(${game.background_image}) center / cover no-repeat fixed`
             }}>
                 {!isLoading ? 
-                    <div className={cls.container} style={{zIndex: `${errorMessage ? '1001' : '100'}`}}>
-                        <HandledGame game={game} movies={movies} reddit={reddit} updateComments={updateComments} errorMsg={errorMessage}/>
+                    <div className={cls.container}>
+                        <Game game={game} movies={movies} comments={comments} updateComments={updateComments}/>
                     </div> : <img src={loader} alt="loader" className={cls.loader}/>
                 }
             </div>
