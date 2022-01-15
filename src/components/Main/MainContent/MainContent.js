@@ -14,6 +14,8 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
     const chekRender = useRef(false);
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
+
+    console.log(games);
     
     useEffect(() => {
         if (fetching) {

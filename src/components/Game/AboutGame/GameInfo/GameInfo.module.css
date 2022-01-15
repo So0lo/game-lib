@@ -12,6 +12,16 @@
     border-radius: 4px;
 }
 
+.addBookmark {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: red;
+    top: 5px;
+    right: 10px;
+    z-index: 100;
+}
+
 .gameImg{
     height: 100%;
     position: absolute;

@@ -73,3 +73,4 @@ export const setFetching = (bool) => ({
     type: gamePageActionTypes.SET_FETCHING,
     payload: bool
 });
+

@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBookmark } from '../../../../Redux/bookmarks/bookmarksActions';
+import { getBookmarks } from '../../../../Redux/bookmarks/bookmarksSelectors';
 import cls from "./GameInfo.module.css";
 
 export const GameInfo = (
@@ -18,34 +21,53 @@ export const GameInfo = (
                 metacritic,
                 ratings
             }, 
-        movies}
+        movies, game}
     ) => {
 
+        const bookmark = useSelector(getBookmarks);
+        const dispatch = useDispatch();
         const [offset, setOffset] = useState(0);
         const [trailersCount, setTrailersCount] = useState(0);
+        const bootmarkChek = useRef(null);
+
+        console.log(bookmark);
 
         useEffect(() =>{
             setTrailersCount(Object.keys(movies).length - 1)
-        }, [movies])
+        }, [movies]);
+
+        useEffect(() => {
+            if (bookmark.some((obj) => obj.id === game.id)) {
+                bootmarkChek.current.disabled = true;
+            } else {
+                bootmarkChek.current.disabled = false;
+            }
+        }, [bookmark]);
 
         const handleLeftArrow = () => {
             setOffset((currentSet) => {
                 const newOffset = currentSet + 100;
                 return Math.min(newOffset, 0);
             })
-        }
+        };
     
         const handleRightArrow = () => {
             setOffset((currentSet) => {
                 const newOffset = currentSet - 100;
                 return Math.max(newOffset, -(100 * trailersCount));
             })
-        }
+        };
+
+        const changeBookmarks = (game) => {
+            dispatch(addBookmark(game));
+        };
+
         return (
             <>
                 <div className={cls.gameInfo}>
                     <div className={cls.gameInfoInner}>
                         <div className={cls.gameImgWrapper}>
+                            <button ref={bootmarkChek} className={cls.addBookmark} onClick={() => changeBookmarks(game)}></button>
                             <img src={background_image} alt="imgGame" className={cls.gameImg}/>
                         </div>
                         <div className={cls.metacriticCardWrapper}>

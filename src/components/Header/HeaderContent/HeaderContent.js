@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getBookmarks } from "../../../Redux/bookmarks/bookmarksSelectors";
 import headerBgr from '../../../img/headerBgr.jpg';
 import cls from "./HeaderContent.module.css";
 import loader from "../../../img/gif/loader.gif";
+import { Bookmark } from "./Bookmarks/Bookmark";
 
 export const HeaderContent = () => {
-
-    const [gotData, setGotData] = useState([]);
+    const bookmarks = useSelector(getBookmarks);
+    const dispatch = useDispatch();
+    const [data, setData] = useState([]);
     const [offset, setOffset] = useState(0);
+    const [changeStatus, setChangeStatus] = useState(false);
 
     useEffect(() => {
         fetch(`https://api.rawg.io/api/games?key=fc5d17fd5f594b359a91a8ec9bcd0d53&page_size=40`)
@@ -28,7 +33,7 @@ export const HeaderContent = () => {
                     mas.push(elem);
                 }
             }
-            setGotData(mas);
+            setData(mas);
         })
         .catch((mes) => console.log(mes));
     }, []);
@@ -47,6 +52,10 @@ export const HeaderContent = () => {
         })
     }
 
+    const changeButtonStatus = () => {
+        setChangeStatus(!changeStatus);
+    }
+
     return (
         <>
                 <div className={cls.container}
@@ -54,7 +63,15 @@ export const HeaderContent = () => {
                         background: `#000 url(${headerBgr})`
                     }}
                 >
-                    {gotData.length ? 
+                    <button className={cls.showBookmarks} onClick={changeButtonStatus}></button>
+                    <div className={cls.bookmarksWrapper}>
+                        <div style={{
+                            marginRight: `${changeStatus ? '0' : '-500px'}`
+
+                        }} className={cls.bookmarks}>{bookmarks.map((bookmark) => <Bookmark bookmark={bookmark} key={bookmark.id}/>)}
+                        </div>
+                    </div>
+                    {data.length ? 
                         <>
                             <FaChevronLeft className={cls.arrow} onClick={handleLeftArrow}/>
                             <div className={cls.window}>
@@ -63,11 +80,10 @@ export const HeaderContent = () => {
                                         transform: `translateX(${offset}%)`,
                                     }}
                                 >
-                                    {gotData.map((card) => 
+                                    {data.map((card) => 
                                     <HeaderContentCard
                                         headerContentCardData={card}
                                         key={card.id}
-                                        gotData={gotData}
                                     />)}
                                 </div>
                             </div>

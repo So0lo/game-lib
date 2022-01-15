@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 export const Comments = ({comments, updateComments}) => {
     const [inputText, setInputText] = useState('');
     const user = useSelector(getUser);
-    let date = new Date();
     return (
         <div className={cls.commentsWrapper}>
             <h3 className={cls.commentsTitle}>Comments</h3>
@@ -21,7 +20,7 @@ export const Comments = ({comments, updateComments}) => {
                     onChange={({target: {value}}) => setInputText(value)}
                 />
             <button 
-                onClick={() => {updateComments(`${user.uid}${date}`, inputText, user.displayName, user.photoURL); setInputText('')}} 
+                onClick={() => {updateComments(`${user.uid}${Date.now()}`, inputText, user.displayName, user.photoURL); setInputText('')}} 
                 className={cls.button}
             >
                 Submit

@@ -1,0 +1,27 @@
+.bookmark {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.imgWrapper {
+    min-width: 120px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 2px;
+    align-self: center;
+}
+
+.imgGame {
+    width: 120px;
+}
+
+.link {
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: all .1s linear;
+}
+
+.link:hover {
+    color:rgb(255, 255, 30);
+}

@@ -50,13 +50,12 @@ export const GamePage = () => {
     }
 
     const updateComments = (id, text, username, photo) => {
-        const obj = {
+        dispatch(setComments({
             id,
             name: text,
             username,
             photo
-        }
-        dispatch(setComments(obj));
+        }));
     }
 
     return (

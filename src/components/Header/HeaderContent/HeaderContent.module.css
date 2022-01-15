@@ -4,6 +4,33 @@
     align-items: center;
     justify-content: center;
     padding-top: 40px;
+    transition: all .4s ease-in-out;
+}
+
+.showBookmarks {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: red;
+    top: 45px;
+    right: 10px;
+    outline: none;
+    border: none;
+}
+
+.bookmarksWrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    z-index: 100;
+}
+
+.bookmarks {
+    background-color: #000;
+    padding: 8px;
+    border-radius: 3px;
+    transition: all .4s ease-in-out;
 }
 
 .window {

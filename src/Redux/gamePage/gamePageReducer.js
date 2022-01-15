@@ -6,8 +6,7 @@ const initialState = {
     comments: [],
     currentPage: 1,
     chekPage: true,
-    fetching: true,
-    error: ''
+    fetching: true
 };
 
 export const gamePageReducer = (state = initialState, action) => {
@@ -37,8 +36,7 @@ export const gamePageReducer = (state = initialState, action) => {
                 comments: [],
                 currentPage: 1,
                 chekPage: true,
-                fetching: true,
-                error: ''
+                fetching: true
             }
         case gamePageActionTypes.SET_COMMENTS:
             return {

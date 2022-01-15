@@ -21,13 +21,6 @@
     border: 1px solid rgb(255, 255, 0);
 }
 
-.imgCard {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    height: 100%;
-}
-
 .aboutCard {
     display: flex;
     flex-direction: column;
