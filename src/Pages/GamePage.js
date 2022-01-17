@@ -50,12 +50,14 @@ export const GamePage = () => {
     }
 
     const updateComments = (id, text, username, photo) => {
-        dispatch(setComments({
-            id,
-            name: text,
-            username,
-            photo
-        }));
+        if (text) {
+            dispatch(setComments({
+                id,
+                name: text,
+                username,
+                photo
+            }));
+        }
     }
 
     return (

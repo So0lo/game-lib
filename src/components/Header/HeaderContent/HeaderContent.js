@@ -4,6 +4,7 @@ import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookmarks } from "../../../Redux/bookmarks/bookmarksSelectors";
 import headerBgr from '../../../img/headerBgr.jpg';
+import bookmark from '../../../img/bookmark.png';
 import cls from "./HeaderContent.module.css";
 import loader from "../../../img/gif/loader.gif";
 import { Bookmark } from "./Bookmarks/Bookmark";
@@ -63,7 +64,9 @@ export const HeaderContent = () => {
                         background: `#000 url(${headerBgr})`
                     }}
                 >
-                    <button className={cls.showBookmarks} onClick={changeButtonStatus}></button>
+                    <div className={cls.showBookmarks} onClick={changeButtonStatus} style={{
+                        backgroundColor: `${changeStatus ? "rgb(255, 255, 14)" : "#fff"}`
+                    }}><img src={bookmark} alt="bookmark" className={cls.bookmarkImg}/></div>
                     <div className={cls.bookmarksWrapper}>
                         <div style={{
                             marginRight: `${changeStatus ? '0' : '-500px'}`

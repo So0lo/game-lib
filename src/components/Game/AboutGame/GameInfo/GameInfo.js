@@ -3,6 +3,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBookmark } from '../../../../Redux/bookmarks/bookmarksActions';
 import { getBookmarks } from '../../../../Redux/bookmarks/bookmarksSelectors';
+import bookmarkImg from '../../../../img/bookmark.png';
 import cls from "./GameInfo.module.css";
 
 export const GameInfo = (
@@ -67,7 +68,11 @@ export const GameInfo = (
                 <div className={cls.gameInfo}>
                     <div className={cls.gameInfoInner}>
                         <div className={cls.gameImgWrapper}>
-                            <button ref={bootmarkChek} className={cls.addBookmark} onClick={() => changeBookmarks(game)}></button>
+                            <div ref={bootmarkChek} className={cls.addBookmark} onClick={() => changeBookmarks(game)} style={{
+                                backgroundColor: `${bootmarkChek.current ? "rgb(128, 128, 128)" : "#fff"}`
+                            }}>
+                                <img src={bookmarkImg} alt="bookmark" className={cls.bookmarkImg}/>
+                            </div>
                             <img src={background_image} alt="imgGame" className={cls.gameImg}/>
                         </div>
                         <div className={cls.metacriticCardWrapper}>

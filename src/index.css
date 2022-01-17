@@ -5,3 +5,20 @@
   box-sizing: border-box;
   font-family: Agency FB, Helvetica, sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(128, 128, 128);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(99, 99, 99);
+}

@@ -16,10 +16,21 @@
     position: absolute;
     width: 35px;
     height: 35px;
-    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .1s linear;
     top: 5px;
     right: 10px;
     z-index: 100;
+    border: 1px solid transparent;
+}
+
+.addBookmark:hover {
+    border: 1px solid #000;
+}
+
+.bookmarkImg {
+    width: 100%;
 }
 
 .gameImg{

@@ -11,11 +11,21 @@
     position: absolute;
     width: 35px;
     height: 35px;
-    background-color: red;
     top: 45px;
     right: 10px;
     outline: none;
     border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .1s linear;
+}
+
+.showBookmarks:hover {
+    border: 1px solid rgb(245, 245, 20);
+}
+
+.bookmarkImg {
+    width: 100%;
 }
 
 .bookmarksWrapper {
@@ -31,6 +41,8 @@
     padding: 8px;
     border-radius: 3px;
     transition: all .4s ease-in-out;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .window {
