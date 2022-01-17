@@ -4,6 +4,7 @@
   outline: none;
   box-sizing: border-box;
   font-family: Agency FB, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

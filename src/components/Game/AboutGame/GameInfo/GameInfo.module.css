@@ -1,7 +1,7 @@
 .gameInfo {
     display: flex;
     padding: 30px 50px 15px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(128, 128, 128);
 }
 
 .gameImgWrapper {

@@ -10,6 +10,12 @@ export const bookmarksReducer = (state = initialState, action) => {
             return {
                 games: [...state.games, action.payload]
             }
+        case bookmarksActionTypes.DELETE:
+            return {
+                games: state.games.filter(
+                    (game) => game.id !== action.payload
+                )
+            }
         default: 
             return state;
     }

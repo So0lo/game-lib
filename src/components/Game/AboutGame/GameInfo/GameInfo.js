@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBookmark } from '../../../../Redux/bookmarks/bookmarksActions';
+import { addBookmark, deleteBookmark } from '../../../../Redux/bookmarks/bookmarksActions';
 import { getBookmarks } from '../../../../Redux/bookmarks/bookmarksSelectors';
 import bookmarkImg from '../../../../img/bookmark.png';
 import cls from "./GameInfo.module.css";
@@ -29,21 +29,10 @@ export const GameInfo = (
         const dispatch = useDispatch();
         const [offset, setOffset] = useState(0);
         const [trailersCount, setTrailersCount] = useState(0);
-        const bootmarkChek = useRef(null);
-
-        console.log(bookmark);
 
         useEffect(() =>{
             setTrailersCount(Object.keys(movies).length - 1)
         }, [movies]);
-
-        useEffect(() => {
-            if (bookmark.some((obj) => obj.id === game.id)) {
-                bootmarkChek.current.disabled = true;
-            } else {
-                bootmarkChek.current.disabled = false;
-            }
-        }, [bookmark]);
 
         const handleLeftArrow = () => {
             setOffset((currentSet) => {
@@ -60,7 +49,7 @@ export const GameInfo = (
         };
 
         const changeBookmarks = (game) => {
-            dispatch(addBookmark(game));
+            bookmark.some((obj) => obj.id === game.id) ? dispatch(deleteBookmark(game.id)) : dispatch(addBookmark(game));
         };
 
         return (
@@ -68,8 +57,8 @@ export const GameInfo = (
                 <div className={cls.gameInfo}>
                     <div className={cls.gameInfoInner}>
                         <div className={cls.gameImgWrapper}>
-                            <div ref={bootmarkChek} className={cls.addBookmark} onClick={() => changeBookmarks(game)} style={{
-                                backgroundColor: `${bootmarkChek.current ? "rgb(128, 128, 128)" : "#fff"}`
+                            <div className={cls.addBookmark} onClick={() => changeBookmarks(game)} style={{
+                                backgroundColor: `${bookmark.some((obj) => obj.id === game.id) ? "rgb(128, 128, 128)" : "#fff"}`
                             }}>
                                 <img src={bookmarkImg} alt="bookmark" className={cls.bookmarkImg}/>
                             </div>

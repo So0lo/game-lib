@@ -11,7 +11,6 @@ import { Bookmark } from "./Bookmarks/Bookmark";
 
 export const HeaderContent = () => {
     const bookmarks = useSelector(getBookmarks);
-    const dispatch = useDispatch();
     const [data, setData] = useState([]);
     const [offset, setOffset] = useState(0);
     const [changeStatus, setChangeStatus] = useState(false);
