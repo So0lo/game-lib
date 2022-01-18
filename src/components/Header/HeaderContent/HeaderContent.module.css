@@ -42,7 +42,8 @@
     border-radius: 3px;
     transition: all .4s ease-in-out;
     height: 500px;
-    min-width: 330px;
+    min-width: 300px;
+    max-width: 350px;
     overflow-y: scroll;
 }
 

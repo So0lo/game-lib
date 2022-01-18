@@ -16,6 +16,10 @@ export const bookmarksReducer = (state = initialState, action) => {
                     (game) => game.id !== action.payload
                 )
             }
+        case bookmarksActionTypes.USER_BOOKMARKS:
+                return {
+                    games: action.payload
+                }
         default: 
             return state;
     }

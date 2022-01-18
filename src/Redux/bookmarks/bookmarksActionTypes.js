@@ -1,4 +1,5 @@
 export const bookmarksActionTypes = {
     ADD: 'ADD',
-    DELETE: 'DELETE'
+    DELETE: 'DELETE',
+    USER_BOOKMARKS: 'USER_BOOKMARKS'
 };

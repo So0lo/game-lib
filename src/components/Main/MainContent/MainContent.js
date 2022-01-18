@@ -41,7 +41,7 @@ export const MainContent = ({searchText, genresFilter, tagsFilter, platformsFilt
     }, [fetching, goToUp]);
 
     const scrollHandler = ({target}) => {
-        if (target.documentElement.scrollHeight - (target.documentElement.scrollTop + window.innerHeight) < 150 && chekPage) {
+        if (target.documentElement.scrollHeight - (target.documentElement.scrollTop + window.innerHeight) < 300 && chekPage) {
             dispatch(setFetching(true));
         }
         if (target.documentElement.scrollTop > 2000 && !goToUp) {

@@ -10,4 +10,4 @@ export const Bookmark = ({bookmark: {background_image, name, id}}) => {
                 <Link to={`/game/${id}`} className={cls.link}>{name}</Link>
             </div>
     )
-}
+};

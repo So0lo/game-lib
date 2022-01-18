@@ -1,5 +1,7 @@
 import {signIn, auth} from '../../Firebase/FirebaseAuth';
 import {userActionTypes} from './userActionTypes';
+import { db } from '../../Firebase/FirebaseConfig';
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export const userLogin = () => {
     return (dispatch) => {
@@ -26,6 +28,14 @@ export const userLogout = () => {
             dispatch({
                 type: userActionTypes.USER_LOGOUT
             });
+        });
+    }
+}
+
+export const initUser = (userId, bookmarks) => {
+    return async () => {
+        await setDoc(doc(db, "users", userId), {
+            bookmarks: bookmarks
         });
     }
 }
