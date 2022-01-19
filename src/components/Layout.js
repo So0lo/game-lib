@@ -1,11 +1,9 @@
 import { Logo } from "./Logo/Logo";
 import { Footer } from "./Footer/Footer";
 import { Outlet } from "react-router-dom";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../Redux/user/userSelectors";
-import { initUser } from "../Redux/user/userActions";
-import { getBookmarks } from "../Redux/bookmarks/bookmarksSelectors";
 import { getUserBookmarks } from "../Redux/bookmarks/bookmarksActions";
 
 

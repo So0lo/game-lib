@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { HeaderContentCard } from "./HeaderContentCard/HeaderContentCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getBookmarks } from "../../../Redux/bookmarks/bookmarksSelectors";
 import headerBgr from '../../../img/headerBgr.jpg';
 import bookmark from '../../../img/bookmark.png';

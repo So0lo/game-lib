@@ -1,11 +1,7 @@
 .mainNav {
     width: 15%;
     background-color: #000;
-    
-}
-
-.mainNavInner {
-    position: sticky;
+    position: relative;
 }
 
 .searchBar {

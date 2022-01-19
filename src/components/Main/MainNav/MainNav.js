@@ -60,7 +60,6 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
 
     return (
            <div className={cls.mainNav}>
-               <div className={cls.mainNavInner}>
                <div className={cls.searchBar}>
                     <input
                         className={cls.searchBarInput}
@@ -109,7 +108,6 @@ export const MainNav = ({changeSearchText, changeGenresFilter, genresFilter, cha
                                 </div>
                         </div>
                    </div>
-               </div>
                </div>
            </div>
     )

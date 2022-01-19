@@ -1,7 +1,7 @@
 import {signIn, auth} from '../../Firebase/FirebaseAuth';
 import {userActionTypes} from './userActionTypes';
 import { db } from '../../Firebase/FirebaseConfig';
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 export const userLogin = () => {
     return (dispatch) => {
